@@ -1,0 +1,9 @@
+FROM python:latest
+
+COPY . /app
+
+WORKDIR /app
+
+RUN pip install tabulate
+
+CMD ["python", "CLBOT_PY4POWER/CLBOT_PY4POWER/main.py"]
