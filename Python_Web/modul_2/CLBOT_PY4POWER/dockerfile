@@ -1,13 +1,11 @@
 FROM python:latest
-
-WORKDIR /pybot_app
-
-ENV POETRY_VIRTUALENVS_CREATE=false
-
-COPY ["pyproject.toml", "/pybot_app/"]
-
+#Create a working directory
+WORKDIR /src
+#Copy toml in workdir
+COPY ["pyproject.toml", "/src/"]
+#install dependecies from .toml
 RUN pip install -e .
-
-COPY . /pybot_app
-
+#copy other files in workdir
+COPY . /src
+#run out code
 CMD ["python", "app/main.py"]
